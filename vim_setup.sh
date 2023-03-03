@@ -6,9 +6,17 @@ if [ $(uname -m) = x86_64 ]; then
   # Install latest appimage
   NVIM_PATH=~/software/nvim.appimage
   NVIM_DIR=$(dirname $NVIM_PATH)
+
+
   mkdir -p $NVIM_DIR
-  wget https://github.com/neovim/neovim/releases/download/v0.5.1/nvim.appimage -P $NVIM_DIR
+
+  # Download the latest appimage
+  wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage -P $NVIM_DIR
+
+  # Make it executable
   chmod u+x $NVIM_PATH
+
+  
   sudo update-alternatives --install /usr/bin/ex ex "${NVIM_PATH}" 110
   sudo update-alternatives --install /usr/bin/vi vi "${NVIM_PATH}" 110
   sudo update-alternatives --install /usr/bin/view view "${NVIM_PATH}" 110
@@ -27,9 +35,19 @@ fi
 #rm -rf ~/.config/nvim/bundle
 #rm ~/.config/nvim
 
+## old plugin installer
+
+# Install Vundle
+# mkdir -p ~/.config/nvim/bundle
+# git clone https://github.com/VundleVim/Vundle.vim.git ~/.config/nvim/bundle/Vundle.vim
+
+# nvim --headless +PluginInstall +qa
+
+
+# install astroNvim
+
+git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim
+
+nvim --headless +PackerSync
+
 stow nvim
-mkdir -p ~/.config/nvim/bundle
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.config/nvim/bundle/Vundle.vim
-
-nvim --headless +PluginInstall +qa
-

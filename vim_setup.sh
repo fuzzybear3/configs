@@ -9,6 +9,9 @@ if [ $(uname -m) = x86_64 ]; then
 
 
   mkdir -p $NVIM_DIR
+  if [ -f "$NVIM_PATH" ];
+  then rm -rf "$NVIM_PATH" 
+  fi
 
   # Download the latest appimage
   wget https://github.com/neovim/neovim/releases/download/stable/nvim.appimage -P $NVIM_DIR
@@ -45,9 +48,10 @@ fi
 
 
 # install astroNvim
-
+if [ ! -f ~/.config/nvim.bak ]; then mv ~/.config/nvim ~/.config/nvim.bak; fi
+if [ ! -f ~/.local/share/nvim.bak ]; then mv ~/.local/share/nvim ~/.local/share/nvim.bak; fi
 git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim
 
-nvim --headless +PackerSync
+nvim +PackerSync
 
 stow nvim

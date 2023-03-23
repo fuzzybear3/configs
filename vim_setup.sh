@@ -54,10 +54,10 @@ NERD_FONT_NAME=SourceCodePro
 wget -P ~/Downloads https://github.com/ryanoasis/nerd-fonts/releases/latest/download/SourceCodePro.zip
 
 #unzip
-unzip ~/Downloads/{NERD_FONT_NAME}.zip
+unzip ~/Downloads/${NERD_FONT_NAME}.zip
 
-mkdir -p ~/.local/share/fonts/{NERD_FONT_NAME}
-unzip ~/Downloads/SourceCodePro.zip -d ~/.local/share/fonts/{NERD_FONT_NAME}
+mkdir -p ~/.local/share/fonts/${NERD_FONT_NAME}
+unzip ~/Downloads/SourceCodePro.zip -d ~/.local/share/fonts/${NERD_FONT_NAME}
 
 fc-cache -f -v | grep "{NERD_FONT_NAME}"
 

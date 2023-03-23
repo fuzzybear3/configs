@@ -47,6 +47,21 @@ fi
 # nvim --headless +PluginInstall +qa
 
 
+## install nerd fonts(used by nvim)
+
+NERD_FONT_NAME=SourceCodePro
+# download zipped font
+wget -P ~/Downloads https://github.com/ryanoasis/nerd-fonts/releases/latest/download/SourceCodePro.zip
+
+#unzip
+unzip ~/Downloads/{NERD_FONT_NAME}.zip
+
+mkdir -p ~/.local/share/fonts/{NERD_FONT_NAME}
+unzip ~/Downloads/SourceCodePro.zip -d ~/.local/share/fonts/{NERD_FONT_NAME}
+
+fc-cache -f -v | grep "{NERD_FONT_NAME}"
+
+
 # install astroNvim
 if [ ! -f ~/.config/nvim.bak ]; then mv ~/.config/nvim ~/.config/nvim.bak; fi
 if [ ! -f ~/.local/share/nvim.bak ]; then mv ~/.local/share/nvim ~/.local/share/nvim.bak; fi

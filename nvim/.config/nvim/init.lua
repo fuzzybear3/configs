@@ -27,3 +27,4 @@ end
       -- { "github/copilot.nvim" },
     }
   }
+

@@ -2,7 +2,7 @@
 
 set -xe
 
-if [ $(uname -m) = x86_64 ]; then
+if [ $(uname -m) = x86_64 ] || [ $(uname -m) = aarch64 ]; then
   # Install latest appimage
   NVIM_PATH=~/software/nvim.appimage
   NVIM_DIR=$(dirname $NVIM_PATH)
@@ -63,8 +63,14 @@ fc-cache -f -v | grep "{NERD_FONT_NAME}"
 
 
 # install astroNvim
-if [ ! -f ~/.config/nvim.bak ]; then mv ~/.config/nvim ~/.config/nvim.bak; fi
-if [ ! -f ~/.local/share/nvim.bak ]; then mv ~/.local/share/nvim ~/.local/share/nvim.bak; fi
+# save old nvim config
+
+if [ ! -f ~/.config/nvim.bak ] && [ -f ~/.config/nvim ]; 
+then mv ~/.config/nvim ~/.config/nvim.bak; fi
+
+if [ ! -f ~/.local/share/nvim.bak ] && [ -f ~/.config/nvim ]; 
+then mv ~/.local/share/nvim ~/.local/share/nvim.bak; fi
+
 git clone https://github.com/AstroNvim/AstroNvim ~/.config/nvim
 
 nvim +PackerSync

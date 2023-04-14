@@ -101,6 +101,9 @@ window:
   # Scrolling distance multiplier.
   #multiplier: 3
 
+font:
+  normal:
+    family: "MesloLGS NF"
 # Font configuration
 #font:
   # Normal (roman) font face

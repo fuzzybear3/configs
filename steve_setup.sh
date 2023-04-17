@@ -7,9 +7,11 @@ set -xe
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 
+cargo install difftastic
 
 # install Alacritty
 cargo install alacritty
+
 
 # make it the default terminal
 sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /home/steveng/.cargo/bin/alacritty 110

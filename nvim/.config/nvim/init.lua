@@ -24,7 +24,7 @@ end
  -- Configure plugins
   plugins = {
     init = {
-      -- { "github/copilot.nvim" },
+    --  { "github/copilot.vim" },
     }
   }
 
